@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{252A68BF-9670-4CA8-BCC1-1D5402A50F90}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TISMonitorApp</RootNamespace>
+    <AssemblyName>TISMonitorApp</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>TISMonitorApp.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>TISMonitorApp.App</SilverlightAppEntry>
+    <TestPageFileName>TISMonitorAppTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TISMonitor\App.cs" />
+    <Compile Include="TISMonitor\ArrayList.cs" />
+    <Compile Include="TISMonitor\Bitmap.cs" />
+    <Compile Include="TISMonitor\ClientServerInfo.cs" />
+    <Compile Include="TISMonitor\ColorConstants.cs" />
+    <Compile Include="TISMonitor\Connection.cs" />
+    <Compile Include="TISMonitor\Data.cs" />
+    <Compile Include="TISMonitor\DataTable.cs" />
+    <Compile Include="TISMonitor\DeviceState.cs" />
+    <Compile Include="TISMonitor\DisplayBase.cs" />
+    <Compile Include="TISMonitor\DisplayData.cs" />
+    <Compile Include="TISMonitor\DisplayDataType.cs" />
+    <Compile Include="TISMonitor\DisplayLineInfo.cs" />
+    <Compile Include="TISMonitor\DisplayTimetableData.cs" />
+    <Compile Include="TISMonitor\Element.cs" />
+    <Compile Include="TISMonitor\ElementClickEventArgs.cs" />
+    <Compile Include="TISMonitor\ElementClickEventHandler.cs" />
+    <Compile Include="TISMonitor\EventLogDialog.cs" />
+    <Compile Include="TISMonitor\Font.cs" />
+    <Compile Include="TISMonitor\Form.cs" />
+    <Compile Include="TISMonitor\Hashtable.cs" />
+    <Compile Include="TISMonitor\Helper.cs" />
+    <Compile Include="TISMonitor\IconCamera.cs" />
+    <Compile Include="TISMonitor\IconElement.cs" />
+    <Compile Include="TISMonitor\IconLANSwitch.cs" />
+    <Compile Include="TISMonitor\IconPhone.cs" />
+    <Compile Include="TISMonitor\IconSpeaker.cs" />
+    <Compile Include="TISMonitor\IconSpeakerGroup.cs" />
+    <Compile Include="TISMonitor\Layout.cs" />
+    <Compile Include="TISMonitor\LayoutBase.cs" />
+    <Compile Include="TISMonitor\LayoutView.cs" />
+    <Compile Include="TISMonitor\LegendLoaderOffline.cs" />
+    <Compile Include="TISMonitor\LegendLoaderOnline.cs" />
+    <Compile Include="TISMonitor\LegendUILoader.cs" />
+    <Compile Include="TISMonitor\Light.cs" />
+    <Compile Include="TISMonitor\Log.cs" />
+    <Compile Include="TISMonitor\LoggingLevel.cs" />
+    <Compile Include="TISMonitor\MainPage.cs" />
+    <Compile Include="TISMonitor\MoveState.cs" />
+    <Compile Include="TISMonitor\OnElementMoveDelegate.cs" />
+    <Compile Include="TISMonitor\OpenLinkDlg.cs" />
+    <Compile Include="TISMonitor\PageForTests.cs" />
+    <Compile Include="TISMonitor\PathElement.cs" />
+    <Compile Include="TISMonitor\PathElementPassive.cs" />
+    <Compile Include="TISMonitor\PathInfo.cs" />
+    <Compile Include="TISMonitor\Perron.cs" />
+    <Compile Include="TISMonitor\PerronControl.cs" />
+    <Compile Include="TISMonitor\PointSimple.cs" />
+    <Compile Include="TISMonitor\PointSwitch.cs" />
+    <Compile Include="TISMonitor\PointSwitchBase.cs" />
+    <Compile Include="TISMonitor\PositionMarker.cs" />
+    <Compile Include="TISMonitor\Rectangle.cs" />
+    <Compile Include="TISMonitor\ReportDlg.cs" />
+    <Compile Include="TISMonitor\SerializableAttribute.cs" />
+    <Compile Include="TISMonitor\SIDISServerBase.cs" />
+    <Compile Include="TISMonitor\SilverlightHelper.cs" />
+    <Compile Include="TISMonitor\SLException.cs" />
+    <Compile Include="TISMonitor\StateElement.cs" />
+    <Compile Include="TISMonitor\Station.cs" />
+    <Compile Include="TISMonitor\Stations.cs" />
+    <Compile Include="TISMonitor\Strings.cs" />
+    <Compile Include="TISMonitor\TextLabel.cs" />
+    <Compile Include="TISMonitor\TextLabelControl.cs" />
+    <Compile Include="TISMonitor\TimerMoveData.cs" />
+    <Compile Include="TISMonitor\TISLayout.cs" />
+    <Compile Include="TISMonitor\TISLayoutControl.cs" />
+    <Compile Include="TISMonitor\TISWebService\ArrayOfString.cs" />
+    <Compile Include="TISMonitor\TISWebService\Car.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetCarOperationStatisticsCompletedEventArgs.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetCarOperationStatisticsRequest.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetCarOperationStatisticsRequestBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetCarOperationStatisticsResponse.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetCarOperationStatisticsResponseBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetDevicesCompletedEventArgs.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetDevicesRequest.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetDevicesRequestBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetDevicesResponse.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetDevicesResponseBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetGPSDeviceStatisticsCompletedEventArgs.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetGPSDeviceStatisticsInitUICompletedEventArgs.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetGPSDeviceStatisticsInitUIRequest.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetGPSDeviceStatisticsInitUIRequestBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetGPSDeviceStatisticsInitUIResponse.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetGPSDeviceStatisticsInitUIResponseBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetGPSDeviceStatisticsRequest.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetGPSDeviceStatisticsRequestBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetGPSDeviceStatisticsResponse.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetGPSDeviceStatisticsResponseBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetStateCompletedEventArgs.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetStateRequest.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetStateRequestBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetStateResponse.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetStateResponseBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetTrainRouteHtmlCompletedEventArgs.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetTrainRouteHtmlRequest.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetTrainRouteHtmlRequestBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetTrainRouteHtmlResponse.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetTrainRouteHtmlResponseBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetTrainsOnlineCompletedEventArgs.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetTrainsOnlineRequest.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetTrainsOnlineRequestBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetTrainsOnlineResponse.cs" />
+    <Compile Include="TISMonitor\TISWebService\GetTrainsOnlineResponseBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\OnlineOfflineStatisticsEntry.cs" />
+    <Compile Include="TISMonitor\TISWebService\SetTrainDataCompletedEventArgs.cs" />
+    <Compile Include="TISMonitor\TISWebService\SetTrainDataRequest.cs" />
+    <Compile Include="TISMonitor\TISWebService\SetTrainDataRequestBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\SetTrainDataResponse.cs" />
+    <Compile Include="TISMonitor\TISWebService\SetTrainDataResponseBody.cs" />
+    <Compile Include="TISMonitor\TISWebService\TISWebServiceSoap.cs" />
+    <Compile Include="TISMonitor\TISWebService\TISWebServiceSoapChannel.cs" />
+    <Compile Include="TISMonitor\TISWebService\TISWebServiceSoapClient.cs" />
+    <Compile Include="TISMonitor\TISWebService\TrainGPSStatisticsWebData.cs" />
+    <Compile Include="TISMonitor\TISWebService\TrainWebData.cs" />
+    <Compile Include="TISMonitor\Track.cs" />
+    <Compile Include="TISMonitor\TrackedTrainList.cs" />
+    <Compile Include="TISMonitor\TrackedTrainListEx.cs" />
+    <Compile Include="TISMonitor\TrackPassive.cs" />
+    <Compile Include="TISMonitor\Train.cs" />
+    <Compile Include="TISMonitor\TrainBase.cs" />
+    <Compile Include="TISMonitor\TrainControl.cs" />
+    <Compile Include="TISMonitor\TrainCourse.cs" />
+    <Compile Include="TISMonitor\TrainDragDropEventArgs.cs" />
+    <Compile Include="TISMonitor\TrainDragDropEventHandler.cs" />
+    <Compile Include="TISMonitor\TrainGraphCache.cs" />
+    <Compile Include="TISMonitor\TrainGraphCacheStorage.cs" />
+    <Compile Include="TISMonitor\TrainGraphControl.cs" />
+    <Compile Include="TISMonitor\TrainNumberField.cs" />
+    <Compile Include="TISMonitor\TrainOfflinePositionControl.cs" />
+    <Compile Include="TISMonitor\TrainOnlinePositionControl.cs" />
+    <Compile Include="TISMonitor\TrainPoint.cs" />
+    <Compile Include="TISMonitor\TrainPropertiesDlg.cs" />
+    <Compile Include="TISMonitor\TrainPropEventArgs.cs" />
+    <Compile Include="TISMonitor\TrainPropEventHandler.cs" />
+    <Compile Include="TISMonitor\TrainsCache.cs" />
+    <Compile Include="TISMonitor\TrainsCacheStorage.cs" />
+    <Compile Include="TISMonitor\XMLResourceLoaderUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

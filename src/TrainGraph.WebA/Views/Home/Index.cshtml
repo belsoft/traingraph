@@ -1,0 +1,46 @@
+﻿@{
+  ViewBag.Title = "Monitor";
+}
+
+<style type="text/css">
+  #monitor-container {
+    margin: 40px;
+    overflow-y: scroll;
+    height:600px;
+  }
+
+  #monitor {
+    height: 900px;
+    width:1000px;
+  }
+</style>
+
+@*<div id="monitor-container">*@
+  <div id="monitor"></div>
+@*</div>*@
+  @*<div class="col-md-6 panel panel-info">
+      <h2>Пример запуска Get</h2>
+      <p>
+        Метод без параметров .<br />
+        Используется текущее время  для <b>clientLastRealTimeTrainGraphTimeValue</b>.<br />
+        текущий день в 5 утра для <b>traingraphStartValue</b>.<br />
+        завтрашний день в 1 ночи для <b>traingraphStartValue</b>.<br />
+        <br /> Результат отобразится в консоле
+      </p>
+      <p>
+        <a class="btn btn-default" onclick="getTrainData()" href="#">Get</a>
+      </p>
+    </div>
+    <div class="col-md-4 col-md-offset-1 panel panel-info">
+      <h2>Пример запуска Post</h2>
+      <p>.Параметризированные метод. Результат отобразится в консоле <br /><br /></p>
+      <p>
+        <a class="btn btn-default" onclick="postTrainData()" href="#">Post</a>
+      </p>
+    </div>*@
+  <script type="text/javascript" src="~/scripts/traingraph.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      loadMonitor('monitor');
+    });
+  </script>

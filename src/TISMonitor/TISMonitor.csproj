@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F959C136-9A4A-4E57-99E1-E5548863A810}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TISMonitor</RootNamespace>
+    <AssemblyName>TISMonitor</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="ArrayList.cs" />
+    <Compile Include="Bitmap.cs" />
+    <Compile Include="ClientServerInfo.cs" />
+    <Compile Include="ColorConstants.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="Data.cs" />
+    <Compile Include="DataTable.cs" />
+    <Compile Include="DeviceState.cs" />
+    <Compile Include="DisplayBase.cs" />
+    <Compile Include="DisplayData.cs" />
+    <Compile Include="DisplayDataType.cs" />
+    <Compile Include="DisplayLineInfo.cs" />
+    <Compile Include="DisplayTimetableData.cs" />
+    <Compile Include="Element.cs" />
+    <Compile Include="ElementClickEventArgs.cs" />
+    <Compile Include="ElementClickEventHandler.cs" />
+    <Compile Include="EventLogDialog.cs" />
+    <Compile Include="Font.cs" />
+    <Compile Include="Form.cs" />
+    <Compile Include="Hashtable.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="IconCamera.cs" />
+    <Compile Include="IconElement.cs" />
+    <Compile Include="IconLANSwitch.cs" />
+    <Compile Include="IconPhone.cs" />
+    <Compile Include="IconSpeaker.cs" />
+    <Compile Include="IconSpeakerGroup.cs" />
+    <Compile Include="Layout.cs" />
+    <Compile Include="LayoutBase.cs" />
+    <Compile Include="LayoutView.cs" />
+    <Compile Include="LegendLoaderOffline.cs" />
+    <Compile Include="LegendLoaderOnline.cs" />
+    <Compile Include="LegendUILoader.cs" />
+    <Compile Include="Light.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="LoggingLevel.cs" />
+    <Compile Include="MainPage.cs" />
+    <Compile Include="MoveState.cs" />
+    <Compile Include="OnElementMoveDelegate.cs" />
+    <Compile Include="OpenLinkDlg.cs" />
+    <Compile Include="PageForTests.cs" />
+    <Compile Include="PathElement.cs" />
+    <Compile Include="PathElementPassive.cs" />
+    <Compile Include="PathInfo.cs" />
+    <Compile Include="Perron.cs" />
+    <Compile Include="PerronControl.cs" />
+    <Compile Include="PointSimple.cs" />
+    <Compile Include="PointSwitch.cs" />
+    <Compile Include="PointSwitchBase.cs" />
+    <Compile Include="PositionMarker.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rectangle.cs" />
+    <Compile Include="ReportDlg.cs" />
+    <Compile Include="SerializableAttribute.cs" />
+    <Compile Include="SIDISServerBase.cs" />
+    <Compile Include="_SilverlightHelper.cs" />
+    <Compile Include="SLException.cs" />
+    <Compile Include="StateElement.cs" />
+    <Compile Include="Station.cs" />
+    <Compile Include="Stations.cs" />
+    <Compile Include="Strings.cs" />
+    <Compile Include="TextLabel.cs" />
+    <Compile Include="TextLabelControl.cs" />
+    <Compile Include="TimerMoveData.cs" />
+    <Compile Include="TISLayout.cs" />
+    <Compile Include="TISLayoutControl.cs" />
+    <Compile Include="TISWebService\ArrayOfString.cs" />
+    <Compile Include="TISWebService\Car.cs" />
+    <Compile Include="TISWebService\GetCarOperationStatisticsCompletedEventArgs.cs" />
+    <Compile Include="TISWebService\GetCarOperationStatisticsRequest.cs" />
+    <Compile Include="TISWebService\GetCarOperationStatisticsRequestBody.cs" />
+    <Compile Include="TISWebService\GetCarOperationStatisticsResponse.cs" />
+    <Compile Include="TISWebService\GetCarOperationStatisticsResponseBody.cs" />
+    <Compile Include="TISWebService\GetDevicesCompletedEventArgs.cs" />
+    <Compile Include="TISWebService\GetDevicesRequest.cs" />
+    <Compile Include="TISWebService\GetDevicesRequestBody.cs" />
+    <Compile Include="TISWebService\GetDevicesResponse.cs" />
+    <Compile Include="TISWebService\GetDevicesResponseBody.cs" />
+    <Compile Include="TISWebService\GetGPSDeviceStatisticsCompletedEventArgs.cs" />
+    <Compile Include="TISWebService\GetGPSDeviceStatisticsInitUICompletedEventArgs.cs" />
+    <Compile Include="TISWebService\GetGPSDeviceStatisticsInitUIRequest.cs" />
+    <Compile Include="TISWebService\GetGPSDeviceStatisticsInitUIRequestBody.cs" />
+    <Compile Include="TISWebService\GetGPSDeviceStatisticsInitUIResponse.cs" />
+    <Compile Include="TISWebService\GetGPSDeviceStatisticsInitUIResponseBody.cs" />
+    <Compile Include="TISWebService\GetGPSDeviceStatisticsRequest.cs" />
+    <Compile Include="TISWebService\GetGPSDeviceStatisticsRequestBody.cs" />
+    <Compile Include="TISWebService\GetGPSDeviceStatisticsResponse.cs" />
+    <Compile Include="TISWebService\GetGPSDeviceStatisticsResponseBody.cs" />
+    <Compile Include="TISWebService\GetStateCompletedEventArgs.cs" />
+    <Compile Include="TISWebService\GetStateRequest.cs" />
+    <Compile Include="TISWebService\GetStateRequestBody.cs" />
+    <Compile Include="TISWebService\GetStateResponse.cs" />
+    <Compile Include="TISWebService\GetStateResponseBody.cs" />
+    <Compile Include="TISWebService\GetTrainRouteHtmlCompletedEventArgs.cs" />
+    <Compile Include="TISWebService\GetTrainRouteHtmlRequest.cs" />
+    <Compile Include="TISWebService\GetTrainRouteHtmlRequestBody.cs" />
+    <Compile Include="TISWebService\GetTrainRouteHtmlResponse.cs" />
+    <Compile Include="TISWebService\GetTrainRouteHtmlResponseBody.cs" />
+    <Compile Include="TISWebService\GetTrainsOnlineCompletedEventArgs.cs" />
+    <Compile Include="TISWebService\GetTrainsOnlineRequest.cs" />
+    <Compile Include="TISWebService\GetTrainsOnlineRequestBody.cs" />
+    <Compile Include="TISWebService\GetTrainsOnlineResponse.cs" />
+    <Compile Include="TISWebService\GetTrainsOnlineResponseBody.cs" />
+    <Compile Include="TISWebService\OnlineOfflineStatisticsEntry.cs" />
+    <Compile Include="TISWebService\SetTrainDataCompletedEventArgs.cs" />
+    <Compile Include="TISWebService\SetTrainDataRequest.cs" />
+    <Compile Include="TISWebService\SetTrainDataRequestBody.cs" />
+    <Compile Include="TISWebService\SetTrainDataResponse.cs" />
+    <Compile Include="TISWebService\SetTrainDataResponseBody.cs" />
+    <Compile Include="TISWebService\TISWebServiceSoap.cs" />
+    <Compile Include="TISWebService\TISWebServiceSoapChannel.cs" />
+    <Compile Include="TISWebService\TISWebServiceSoapClient.cs" />
+    <Compile Include="TISWebService\TrainGPSStatisticsWebData.cs" />
+    <Compile Include="TISWebService\TrainWebData.cs" />
+    <Compile Include="Track.cs" />
+    <Compile Include="TrackedTrainList.cs" />
+    <Compile Include="TrackedTrainListEx.cs" />
+    <Compile Include="TrackPassive.cs" />
+    <Compile Include="Train.cs" />
+    <Compile Include="TrainBase.cs" />
+    <Compile Include="TrainControl.cs" />
+    <Compile Include="TrainCourse.cs" />
+    <Compile Include="TrainCurveData.cs" />
+    <Compile Include="TrainDragDropEventArgs.cs" />
+    <Compile Include="TrainDragDropEventHandler.cs" />
+    <Compile Include="TrainGraphCache.cs" />
+    <Compile Include="TrainGraphCacheStorage.cs" />
+    <Compile Include="TrainGraphControl.cs" />
+    <Compile Include="TrainNumberField.cs" />
+    <Compile Include="TrainOfflinePositionControl.cs" />
+    <Compile Include="TrainOnlinePositionControl.cs" />
+    <Compile Include="TrainPoint.cs" />
+    <Compile Include="TrainPropertiesDlg.cs" />
+    <Compile Include="TrainPropEventArgs.cs" />
+    <Compile Include="TrainPropEventHandler.cs" />
+    <Compile Include="TrainsCache.cs" />
+    <Compile Include="TrainsCacheStorage.cs" />
+    <Compile Include="XMLResourceLoaderUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ServiceReferences.ClientConfig" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

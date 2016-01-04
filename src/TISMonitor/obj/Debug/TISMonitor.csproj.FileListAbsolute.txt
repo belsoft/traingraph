@@ -1,0 +1,1 @@
+C:\dev\traingraph\TISMonitor\obj\Debug\TISMonitor.csprojResolveAssemblyReference.cache

@@ -1,0 +1,4 @@
+C:\dev\traingraph\TISMonitorApp\obj\Debug\TISMonitorApp.csprojResolveAssemblyReference.cache
+C:\dev\traingraph\TISMonitorApp\obj\Debug\App.g.cs
+C:\dev\traingraph\TISMonitorApp\obj\Debug\MainPage.g.cs
+C:\dev\traingraph\TISMonitorApp\obj\Debug\TISMonitorApp.g.resources

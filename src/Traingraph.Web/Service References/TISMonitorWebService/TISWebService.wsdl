@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetDevices">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDevicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDevicesResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="cars" type="tns:ArrayOfCar" />
+            <s:element minOccurs="0" maxOccurs="1" name="strError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Car" nillable="true" type="tns:Car" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Car">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RecId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeviceId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OnlineTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="OnlineLatitude" nillable="true" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="OnlineLongitude" nillable="true" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="OfflineTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="OfflineLatitude" nillable="true" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="OfflineLongitude" nillable="true" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="State" nillable="true" type="s:unsignedByte" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGPSDeviceStatisticsInitUI">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGPSDeviceStatisticsInitUIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetGPSDeviceStatisticsInitUIResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="historyExists" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="availableDevicesInHistory" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="dateTimeFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dateTimeTo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGPSDeviceStatistics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dateTimeFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dateTimeTo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxOutputRange" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGPSDeviceStatisticsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetGPSDeviceStatisticsResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="listTrainGPSStatistic" type="tns:ArrayOfTrainGPSStatisticsWebData" />
+            <s:element minOccurs="0" maxOccurs="1" name="strError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTrainGPSStatisticsWebData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TrainGPSStatisticsWebData" nillable="true" type="tns:TrainGPSStatisticsWebData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TrainGPSStatisticsWebData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GPSTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrainID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Speed" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTrainRouteHtml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="trainId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrainRouteHtmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTrainRouteHtmlResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="html" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarOperationStatistics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarOperationStatisticsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCarOperationStatisticsResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="webList" type="tns:ArrayOfOnlineOfflineStatisticsEntry" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportRangeTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOnlineOfflineStatisticsEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OnlineOfflineStatisticsEntry" nillable="true" type="tns:OnlineOfflineStatisticsEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OnlineOfflineStatisticsEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Car" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OnlineTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OnlineTimeMinutes" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Disconnections" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastOfflineTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastOfflineLink" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastOnlineTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastOnlineLink" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActuelGPSTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActuelGPSLink" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisconnectionPoints" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetTrainData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="trainIdOld" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="trainIdNew" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="goodsTrain" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="trainDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTrainDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetTrainDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrainsOnline">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTrainsOnlineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTrainsOnlineResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="listTrains" type="tns:ArrayOfTrainWebData" />
+            <s:element minOccurs="0" maxOccurs="1" name="strError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTrainWebData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TrainWebData" nillable="true" type="tns:TrainWebData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TrainWebData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="HeadElement" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HeadOffset" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NextElement" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DelaySec" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDToDisplay" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HeadElementArrivedSource" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Direction" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tooltip" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AtPerron" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Locomotive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="NextElementSource" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasTimetable" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="GPSLat" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="GPSLon" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="GPSEnabled" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActualOrLastStation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColorHi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColorLo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strIn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetStateResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOut" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="onlineTrainsData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="offlineTrainsData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="onlineButNotOnTheMapTrainsData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="trainGraphData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDevicesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDevices" />
+  </wsdl:message>
+  <wsdl:message name="GetDevicesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGPSDeviceStatisticsInitUISoapIn">
+    <wsdl:part name="parameters" element="tns:GetGPSDeviceStatisticsInitUI" />
+  </wsdl:message>
+  <wsdl:message name="GetGPSDeviceStatisticsInitUISoapOut">
+    <wsdl:part name="parameters" element="tns:GetGPSDeviceStatisticsInitUIResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGPSDeviceStatisticsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGPSDeviceStatistics" />
+  </wsdl:message>
+  <wsdl:message name="GetGPSDeviceStatisticsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGPSDeviceStatisticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTrainRouteHtmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTrainRouteHtml" />
+  </wsdl:message>
+  <wsdl:message name="GetTrainRouteHtmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTrainRouteHtmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCarOperationStatisticsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCarOperationStatistics" />
+  </wsdl:message>
+  <wsdl:message name="GetCarOperationStatisticsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCarOperationStatisticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTrainDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTrainData" />
+  </wsdl:message>
+  <wsdl:message name="SetTrainDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTrainDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTrainsOnlineSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTrainsOnline" />
+  </wsdl:message>
+  <wsdl:message name="GetTrainsOnlineSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTrainsOnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetState" />
+  </wsdl:message>
+  <wsdl:message name="GetStateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TISWebServiceSoap">
+    <wsdl:operation name="GetDevices">
+      <wsdl:input message="tns:GetDevicesSoapIn" />
+      <wsdl:output message="tns:GetDevicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGPSDeviceStatisticsInitUI">
+      <wsdl:input message="tns:GetGPSDeviceStatisticsInitUISoapIn" />
+      <wsdl:output message="tns:GetGPSDeviceStatisticsInitUISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGPSDeviceStatistics">
+      <wsdl:input message="tns:GetGPSDeviceStatisticsSoapIn" />
+      <wsdl:output message="tns:GetGPSDeviceStatisticsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainRouteHtml">
+      <wsdl:input message="tns:GetTrainRouteHtmlSoapIn" />
+      <wsdl:output message="tns:GetTrainRouteHtmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarOperationStatistics">
+      <wsdl:input message="tns:GetCarOperationStatisticsSoapIn" />
+      <wsdl:output message="tns:GetCarOperationStatisticsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTrainData">
+      <wsdl:input message="tns:SetTrainDataSoapIn" />
+      <wsdl:output message="tns:SetTrainDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainsOnline">
+      <wsdl:input message="tns:GetTrainsOnlineSoapIn" />
+      <wsdl:output message="tns:GetTrainsOnlineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <wsdl:input message="tns:GetStateSoapIn" />
+      <wsdl:output message="tns:GetStateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TISWebServiceSoap" type="tns:TISWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDevices">
+      <soap:operation soapAction="http://tempuri.org/GetDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGPSDeviceStatisticsInitUI">
+      <soap:operation soapAction="http://tempuri.org/GetGPSDeviceStatisticsInitUI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGPSDeviceStatistics">
+      <soap:operation soapAction="http://tempuri.org/GetGPSDeviceStatistics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainRouteHtml">
+      <soap:operation soapAction="http://tempuri.org/GetTrainRouteHtml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarOperationStatistics">
+      <soap:operation soapAction="http://tempuri.org/GetCarOperationStatistics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTrainData">
+      <soap:operation soapAction="http://tempuri.org/SetTrainData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainsOnline">
+      <soap:operation soapAction="http://tempuri.org/GetTrainsOnline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <soap:operation soapAction="http://tempuri.org/GetState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TISWebServiceSoap12" type="tns:TISWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDevices">
+      <soap12:operation soapAction="http://tempuri.org/GetDevices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGPSDeviceStatisticsInitUI">
+      <soap12:operation soapAction="http://tempuri.org/GetGPSDeviceStatisticsInitUI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGPSDeviceStatistics">
+      <soap12:operation soapAction="http://tempuri.org/GetGPSDeviceStatistics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainRouteHtml">
+      <soap12:operation soapAction="http://tempuri.org/GetTrainRouteHtml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarOperationStatistics">
+      <soap12:operation soapAction="http://tempuri.org/GetCarOperationStatistics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTrainData">
+      <soap12:operation soapAction="http://tempuri.org/SetTrainData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainsOnline">
+      <soap12:operation soapAction="http://tempuri.org/GetTrainsOnline" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <soap12:operation soapAction="http://tempuri.org/GetState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TISWebService">
+    <wsdl:port name="TISWebServiceSoap" binding="tns:TISWebServiceSoap">
+      <soap:address location="http://blb.csie-data.com/TISWebService/TISWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TISWebServiceSoap12" binding="tns:TISWebServiceSoap12">
+      <soap12:address location="http://blb.csie-data.com/TISWebService/TISWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

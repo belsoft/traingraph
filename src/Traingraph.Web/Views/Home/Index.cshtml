@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="monitor" style="height: 100%; position: absolute;"></div>
+<div class="col-md-6 panel panel-info">
+  <h2>Пример запуска Get</h2>
+  <p>
+    Метод без параметров .<br />
+    Используется текущее время  для <b>clientLastRealTimeTrainGraphTimeValue</b>.<br />
+    текущий день в 5 утра для <b>traingraphStartValue</b>.<br />
+    завтрашний день в 1 ночи для <b>traingraphStartValue</b>.<br />
+    <br /> Результат отобразится в консоле
+  </p>
+  <p>
+    <a class="btn btn-default" onclick="getTrainData()" href="#">Get</a>
+  </p>
+</div>
+<div class="col-md-4 col-md-offset-1 panel panel-info">
+  <h2>Пример запуска Post</h2>
+  <p>.Параметризированные метод. Результат отобразится в консоле <br /><br /></p>
+  <p>
+    <a class="btn btn-default" onclick="postTrainData()" href="#">Post</a>
+  </p>
+</div>
+<script type="text/javascript" src="~/scripts/traingraph.js"></script>
+<script type="text/javascript">
+  loadMonitor();
+
+
+
+
+      function getTrainData() {
+        $.get( "/api/tis",function ( data ) {
+          console.log( data );
+        } );
+      }
+
+  function postTrainData() {
+    var dataIn =
+    {
+      clientLastRealTimeTrainGraphTimeValue: '2015-11-13T15:30:43.511',
+      getRegularTraingraphData: false,
+      getServerTimes: false,
+      traingraphStartValue: '2015-11-13T05:00:00.000',
+      traingraphStopValue: '2012-11-14T01:00:00.000'
+    };
+
+    $.post( "/api/tis",dataIn,function ( data ) {
+      console.log( data );
+    } );
+  }
+
+</script>

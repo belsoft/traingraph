@@ -1,0 +1,6 @@
+C:\dev\traingraph\TISMonitorApp.Web\bin\TISMonitorApp.Web.dll.config
+C:\dev\traingraph\TISMonitorApp.Web\bin\TISMonitorApp.Web.dll
+C:\dev\traingraph\TISMonitorApp.Web\bin\TISMonitorApp.Web.pdb
+C:\dev\traingraph\TISMonitorApp.Web\obj\Debug\TISMonitorApp.Web.csprojResolveAssemblyReference.cache
+C:\dev\traingraph\TISMonitorApp.Web\obj\Debug\TISMonitorApp.Web.dll
+C:\dev\traingraph\TISMonitorApp.Web\obj\Debug\TISMonitorApp.Web.pdb

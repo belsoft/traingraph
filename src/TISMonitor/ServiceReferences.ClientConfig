@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="TISWebServiceSoap" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://blb.csie-data.com/TISWebService/TISWebService.asmx"
+                binding="basicHttpBinding" bindingConfiguration="TISWebServiceSoap"
+                contract="TISWebService.TISWebServiceSoap" name="TISWebServiceSoap" />
+        </client>
+    </system.serviceModel>
+</configuration>
