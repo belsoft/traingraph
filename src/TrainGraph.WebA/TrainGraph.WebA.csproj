@@ -157,7 +157,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\DCSerializerAsync.cs" />
     <Compile Include="Helpers\DCSerializer.cs" />
     <Compile Include="Helpers\DTHelper.cs" />
     <Compile Include="Helpers\FlowingOperationContextScope.cs" />
@@ -178,8 +177,6 @@
     </Compile>
     <None Include="ServiceReference.cs_backup" />
     <Content Include="Content\skype.css" />
-    <Content Include="Scripts\skype.js" />
-    <Content Include="Views\Skype\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

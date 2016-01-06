@@ -33,19 +33,12 @@ namespace TISServiceHelper
         { 
             if(String.IsNullOrEmpty(data))
                 throw new ArgumentNullException("data");
-            //var settings = new DataContractSerializerSettings();
-            //var xmlDictionary = new XmlDictionary();
-            //settings.RootName = xmlDictionary.Add("ArrayOfTrainWebData");
-            //settings.RootNamespace = xmlDictionary.Add("http://schemas.datacontract.org/2004/07/TISWebServiceHelper");
+
             DataContractSerializer serializer = new DataContractSerializer(typeof(T));
             using (MemoryStream stream = new MemoryStream(Convert.FromBase64String(data)))
             {
-          
-                    var obj = serializer.ReadObject(stream);
-                    return (T)obj;
-                
-
-                //return default(T);
+                var obj = serializer.ReadObject(stream);
+                return (T)obj;
             }
         
         }
@@ -66,9 +59,8 @@ namespace TISServiceHelper
         public static string SerializeWithDCS(object obj)
         {
             if (obj == null)
-            {
                 throw new ArgumentNullException("obj");
-            }
+            
             DataContractSerializer serializer = new DataContractSerializer(obj.GetType());
             using (MemoryStream stream = new MemoryStream())
             {
@@ -80,9 +72,8 @@ namespace TISServiceHelper
         public static byte[] SerializeWithDCSMS(object obj)
         {
             if (obj == null)
-            {
                 throw new ArgumentNullException("obj");
-            }
+            
             DataContractSerializer serializer = new DataContractSerializer(obj.GetType());
             using (MemoryStream stream = new MemoryStream())
             {

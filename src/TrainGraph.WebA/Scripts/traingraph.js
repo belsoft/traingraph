@@ -180,9 +180,62 @@ function loadMonitor(containerId) {
       return [xKm, dd];
     }
 
+    var addZ = function(n) { return n < 10 ? '0' + n : '' + n; }
+
+    var getStartDateTime = function (date) {
+     return date.getUTCFullYear() + '-' +
+      addZ(date.getUTCMonth() + 1) + '-' +
+      addZ(date.getUTCDate()) + " 05:00:00.000";
+    }
+
+    var getZeroDateTime = function () {
+      return "01.01.0001 00:00:00.00";
+    }
+
+    var getEndDateTime = function (date) {
+      var nextDay = new Date(date);
+      // get tomorrow
+      nextDay.setDate(nextDay.getDate() + 1);
+
+      return nextDay.getUTCFullYear() + '-' +
+       addZ(nextDay.getUTCMonth() + 1) + '-' +
+       addZ(nextDay.getUTCDate()) + " 01:00:00.000";
+    }
+  //2012-12-31T22:00:00.000Z
+    var convertDateTime = function (date) {
+      return date.toJSON();
+      var result = 
+        date.getUTCFullYear() + '-' +
+        addZ(date.getUTCMonth() + 1) + '-' +
+        addZ(date.getUTCDate()) + "T" +
+        date.getUTCHours() + ":" + date.getUTCMinutes() + ":" +
+        date.getUTCSeconds() + "." + date.getMilliseconds() + "Z";
+
+      return result;
+    }
+  /*
+    getRegularTraingraphData = false,
+                clientLastRealTimeTrainGraphTimeValue = DTHelper.GetStr(DateTime.Now.AddHours(-3)),
+                getServerTimes = false,
+                traingraphStartValue = DTHelper.GetStr(DateTime.Today.AddHours(5)),
+                traingraphStopValue = DTHelper.GetStr(DateTime.Today.AddDays(1).AddHours(1))
+  */
+    var getDataIn = function (isRegular) {
+      var date = new Date();
+      var dataIn =
+       {
+         clientLastRealTimeTrainGraphTimeValue: (isRegular) ? getZeroDateTime() : convertDateTime(date),
+         getRegularTraingraphData: isRegular,
+         getServerTimes: false,
+         traingraphStartValue: (isRegular) ? getZeroDateTime() : getStartDateTime(date),
+         traingraphStopValue: (isRegular) ? getZeroDateTime() : getEndDateTime(date)
+       };
+      return dataIn;
+    };
+
     var getChartSeries = function (callback, getLast) {
 
-      $.getJSON((document.location.pathname.length == 1 ? '' : document.location.pathname) + "/api/tis", function (data) {
+      $.getJSON((document.location.pathname.length == 1 ? '' : document.location.pathname) + "/api/tis", getDataIn(false), function (data) {
         if (data.trainGraphData !== null) {
 
           var curves = data.trainGraphData.Curves;
@@ -431,6 +484,31 @@ function getTrainData() {
   });
 }
 
+/*
+  *  <TISWebServiceGetStateSupportIN xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/TISServiceHelper">
+  *      <clientLastRealTimeTrainGraphTimeValue>01.01.0001 00:00:00.00</clientLastRealTimeTrainGraphTimeValue>
+  *      <getRegularTraingraphData>true</getRegularTraingraphData>
+  *      <getServerTimes>false</getServerTimes>
+  *      <traingraphStartValue>01.01.0001 00:00:00.00</traingraphStartValue>
+  *      <traingraphStopValue>01.01.0001 00:00:00.00</traingraphStopValue>
+  *  </TISWebServiceGetStateSupportIN>
+*/
+
+function getRegularData() {
+  var dataIn =
+   {
+     clientLastRealTimeTrainGraphTimeValue: '01.01.0001T00:00:00.00',
+     getRegularTraingraphData: true,
+     getServerTimes: false,
+     traingraphStartValue: '01.01.0001T00:00:00.00',
+     traingraphStopValue: '01.01.0001T00:00:00.00'
+   };
+
+    $.post(document.location.pathname + "/api/tis", dataIn, function (data) {
+      console.log(data);
+    });
+}
+
 function postTrainData() {
   var dataIn =
   {
@@ -445,3 +523,5 @@ function postTrainData() {
     console.log(data);
   });
 }
+
+//"01.01.0001 00:00:00.00";

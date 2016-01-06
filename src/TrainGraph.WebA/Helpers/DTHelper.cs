@@ -23,7 +23,7 @@ namespace TISServiceHelper
 
         public static string GetStr(DateTime dt)
         {
-            return dt.ToString("dd.MM.yyyy HH:mm:ss.ff");
+            return dt.ToString(CNT_FORMAT);
         }
     }
 }
